@@ -1,9 +1,10 @@
 package patterns;
 
-import dataStructure.BinaryTree;
 import dataStructure.TreeNode;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
 //Базовые алгоритмы обходы дерева
 public class TreeTraversal {
