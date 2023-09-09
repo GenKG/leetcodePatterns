@@ -1,11 +1,12 @@
 package leetcodeTasks;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
+
 // https://leetcode.com/problems/summary-ranges/
 public class SummaryRanges {
     public static void main(String[] args) {
-        System.out.println(summaryRanges(new int[]{0,1,2,4,5,7}));
+        System.out.println(summaryRanges(new int[]{0, 1, 2, 4, 5, 7}));
+        System.out.println(summaryRanges2(new int[]{0, 2, 3, 4, 6, 8, 9}));
     }
 
     public static List<String> summaryRanges(int[] nums) {
@@ -39,5 +40,25 @@ public class SummaryRanges {
         } else {
             res.add(start + "->" + end);
         }
+    }
+
+
+    public static List<String> summaryRanges2(int[] nums) {
+        List<String> arrList = new ArrayList<>();
+        int a = nums[0];
+        for (int i = 0; i < nums.length; i++) {
+            if ((i == nums.length - 1) || nums[i] + 1 != nums[i + 1]) {
+                if (nums[i] != a) {
+                    arrList.add(a + "->" + nums[i]);
+                } else {
+                    arrList.add(nums[i] + "");
+                }
+                if (i != nums.length - 1) a = nums[i + 1];
+            }
+        }
+        new HashSet<>(new HashMap<String,String>().values());
+        List<Integer> list = new ArrayList<>();
+
+        return arrList;
     }
 }
