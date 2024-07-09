@@ -1,6 +1,6 @@
 package leetcodeTasks.easy.tree;
 
-import dataStructure.TreeNode;
+import dataStructure.tree.TreeNode;
 
 //https://leetcode.com/problems/diameter-of-binary-tree/description/
 public class DiameterBinaryTree {

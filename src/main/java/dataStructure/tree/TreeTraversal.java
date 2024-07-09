@@ -1,13 +1,22 @@
 package dataStructure.tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
 public class TreeTraversal {
     public static void main(String[] args) {
         TreeNode tree = getTree();
+        System.out.println("inorder DFS: ------------");
         inorderDfs(tree);
         System.out.println("preorder DFS: ------------");
         preorderDfs(tree);
         System.out.println("postorder DFS: ------------");
         postorderDfs(tree);
+        System.out.println("BFS iterative: -------------");
+        bfsIterative(tree);
+        System.out.println("DFS iterative: -------------");
+        dfsIterative(tree);
     }
 
     public static void inorderDfs(TreeNode node) {
@@ -58,5 +67,38 @@ public class TreeTraversal {
 
         TreeNode root = new TreeNode(10, LeftToLeftNode2, RightToRightNode2);
         return root;
+    }
+
+
+    public static void bfsIterative(TreeNode node){
+        if(node == null) return;
+        Queue<TreeNode> nodeQueue = new LinkedList<>();
+        nodeQueue.add(node);
+        while (!nodeQueue.isEmpty()){
+            TreeNode head = nodeQueue.poll();
+            System.out.println("Doing something with node" + head.getVal());
+            if(head.getLeft() != null){
+                nodeQueue.offer(head.getLeft());
+            }
+            if(head.getRight() != null){
+                nodeQueue.offer(head.getRight());
+            }
+        }
+    }
+
+    public static void dfsIterative(TreeNode node){
+        if(node == null) return;
+        Stack<TreeNode> nodeQueue = new Stack<>();
+        nodeQueue.add(node);
+        while (!nodeQueue.isEmpty()){
+            TreeNode head = nodeQueue.pop();
+            System.out.println("Doing something with node" + head.getVal());
+            if(head.getLeft() != null){
+                nodeQueue.push(head.getLeft());
+            }
+            if(head.getRight() != null){
+                nodeQueue.push(head.getRight());
+            }
+        }
     }
 }
