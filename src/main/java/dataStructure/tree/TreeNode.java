@@ -1,4 +1,4 @@
-package dataStructure;
+package dataStructure.tree;
 
 //Базовая реализация ноды в дереве
 public class TreeNode {
